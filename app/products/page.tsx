@@ -1,8 +1,8 @@
-"use client"
-import { useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { Home, ShoppingCart, LogOut, Info } from "lucide-react"
+"use client";
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Home, ShoppingCart, LogOut, Info } from "lucide-react";
 
 const products = [
   {
@@ -59,25 +59,25 @@ const products = [
     category: "global",
     gradient: "bg-gradient-to-b from-gray-600 to-green-600",
   },
-]
+];
 
 export default function ProductsPage() {
-  const [activeFilter, setActiveFilter] = useState("all")
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false)
+  const [activeFilter, setActiveFilter] = useState("all");
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const handleNavClick = () => {
-    setShowSuccessMessage(true)
+    setShowSuccessMessage(true);
     setTimeout(() => {
-      setShowSuccessMessage(false)
-    }, 3000)
-  }
+      setShowSuccessMessage(false);
+    }, 3000);
+  };
 
   const filteredProducts = products.filter((product) => {
-    if (activeFilter === "all") return true
-    if (activeFilter === "global") return product.category === "global"
-    if (activeFilter === "survival") return product.category === "survival"
-    return true
-  })
+    if (activeFilter === "all") return true;
+    if (activeFilter === "global") return product.category === "global";
+    if (activeFilter === "survival") return product.category === "survival";
+    return true;
+  });
 
   return (
     <div className="min-h-screen bg-[#1a1a1a] text-white">
@@ -86,7 +86,13 @@ export default function ProductsPage() {
         <div className="w-[80%] mx-auto flex items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Image src="/sn-logo.png" alt="Spirit Network Logo" width={40} height={50} className="object-contain" />
+            <Image
+              src="/sn-logo.png"
+              alt="Spirit Network Logo"
+              width={40}
+              height={50}
+              className="object-contain"
+            />
           </div>
 
           {/* Navigation */}
@@ -117,7 +123,9 @@ export default function ProductsPage() {
               {/* User Info */}
               <div className="flex flex-col">
                 <span className="text-xs text-gray-400">Entrou como</span>
-                <span className="text-sm text-white font-medium">Usuario123</span>
+                <span className="text-sm text-white font-medium">
+                  Usuario123
+                </span>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -143,28 +151,44 @@ export default function ProductsPage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/hero-character.svg" alt="Minecraft Character Background" fill className="object-cover" />
+          <Image
+            src="/hero-character.svg"
+            alt="Minecraft Character Background"
+            fill
+            className="object-cover"
+          />
         </div>
         <div className="relative z-10 w-[80%] mx-auto py-16 px-4">
           <div className="flex items-center justify-between">
-            <div className="flex-1 max-w-4xl">
-              <h1 className="text-4xl font-bold mb-4 text-white">DESBLOQUEIE O PODER DO PREMIUM!</h1>
-              <p className="text-lg text-gray-200 mb-6">
-                Tenha acesso a comandos exclusivos como /ec, /craft, /kit, /hat e muito mais. Ganhe +25% de XP no McMMO,
-                aumente seu limite de homes para 30, ore blocos com cores RGB e anuncie até 50 itens no /market com
-                validade estendida. Desbloqueie kits exclusivos, acesse o /warp vip, tenha prioridade no servidor
-                kickado por AFK, e diga adeus aos cooldowns de teletransporte e casamento...
+            <div className="flex-1 max-w-4xl min-w-sm">
+              <span className="text-white text-[40px] sm:text-[48px] md:text-[56px] leading-tight italic -skew-x-6 mb-4 sm:mb-6 font-black pl-10">
+                DESBLOQUEIE O PODER DO PREMIUM!
+              </span>
+              <p className="text-gray-200 text-sm sm:text-base mb-6 max-w-lg mx-auto lg:mx-0 pl-10">
+                Tenha acesso a comandos exclusivos como /ec, /craft, /kit, /hat
+                e muito mais. Ganhe +25% de XP no McMMO, aumente seu limite de
+                homes para 30, ore blocos com cores RGB e anuncie até 50 itens
+                no /market com validade estendida. Desbloqueie kits exclusivos,
+                acesse o /warp vip, tenha prioridade no servidor kickado por
+                AFK, e diga adeus aos cooldowns de teletransporte e casamento...
               </p>
-              <div className="relative inline-block">
+              <div className="relative inline-block w-[260px] h-[65px]">
                 <Image
                   src="/buy-button-icon.svg"
                   alt="COMPRAR PREMIUM!"
-                  width={200}
-                  height={60}
+                  fill
                   className="object-contain cursor-pointer hover:opacity-80 transition-opacity"
                 />
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <span className="text-white font-bold text-sm">COMPRAR PREMIUM!</span>
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none px-2">
+                  <span
+                    className="text-[18px] sm:text-[20px] font-black uppercase text-white text-center w-full"
+                    style={{
+                      WebkitTextStroke: "0.5px #ffffff",
+                      WebkitTextFillColor: "white",
+                    }}
+                  >
+                    COMPRAR PREMIUM!
+                  </span>
                 </div>
               </div>
             </div>
@@ -210,7 +234,9 @@ export default function ProductsPage() {
                 <button
                   onClick={() => setActiveFilter("all")}
                   className={`px-4 py-2 rounded-full text-sm transition-colors ${
-                    activeFilter === "all" ? "bg-purple-600 text-white" : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                    activeFilter === "all"
+                      ? "bg-purple-600 text-white"
+                      : "bg-gray-700 text-gray-300 hover:bg-gray-600"
                   }`}
                 >
                   Todas os Itens
@@ -239,48 +265,55 @@ export default function ProductsPage() {
             </div>
           </div>
 
-          {/* Products Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-            {filteredProducts.map((product) => (
+            {/* Products Grid */}
+            <div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-2 md:gap-2 justify-center"
+              style={{ justifyItems: "center" }}
+            >
+              {filteredProducts.map((product) => (
               <div
                 key={product.id}
-                className={`relative ${product.gradient} border border-gray-700 rounded-lg p-6 hover:border-purple-500 transition-colors`}
+                className={`relative ${product.gradient} border border-gray-700 rounded-lg p-3 md:p-4 hover:border-purple-500 transition-colors w-full max-w-[160px] mx-auto`}
               >
                 {/* Info Button */}
-                <button className="absolute top-3 right-3 w-6 h-6 bg-gray-600 hover:bg-gray-500 rounded-full flex items-center justify-center transition-colors">
-                  <Info size={12} className="text-white" />
+                <button className="absolute top-2 right-2 w-6 h-6 bg-gray-600 hover:bg-gray-500 rounded-full flex items-center justify-center transition-colors">
+                <Info size={12} className="text-white" />
                 </button>
 
-                <div className="text-center mb-4">
-                  <h3 className="text-lg font-bold text-white mb-1">{product.name}</h3>
-                  <p className="text-sm text-purple-400">{product.subtitle}</p>
+                <div className="text-center mb-2">
+                <h3 className="text-base font-bold text-white mb-1">
+                  {product.name}
+                </h3>
+                <p className="text-xs text-purple-400">{product.subtitle}</p>
                 </div>
 
-                <div className="flex justify-center mb-4 h-20 w-20 mx-auto">
-                  <Image
-                    src={product.icon || "/placeholder.svg"}
-                    alt={product.name}
-                    width={80}
-                    height={80}
-                    className="object-contain w-full h-full"
-                  />
+                <div className="flex justify-center mb-2 h-14 w-14 mx-auto">
+                <Image
+                  src={product.icon || "/placeholder.svg"}
+                  alt={product.name}
+                  width={56}
+                  height={56}
+                  className="object-contain w-full h-full"
+                />
                 </div>
 
                 <div className="w-full flex justify-center relative">
-                  <Image
-                    src="/buy-button-icon.svg"
-                    alt={product.price}
-                    width={120}
-                    height={40}
-                    className="object-contain cursor-pointer hover:opacity-80 transition-opacity"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <span className="text-white font-bold text-xs">{product.price}</span>
-                  </div>
+                <Image
+                  src="/buy-button-icon.svg"
+                  alt={product.price}
+                  width={90}
+                  height={30}
+                  className="object-contain cursor-pointer hover:opacity-80 transition-opacity"
+                />
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <span className="text-white font-bold text-xs">
+                  {product.price}
+                  </span>
+                </div>
                 </div>
               </div>
-            ))}
-          </div>
+              ))}
+            </div>
         </div>
       </section>
 
@@ -289,14 +322,21 @@ export default function ProductsPage() {
         <div className="w-[80%] mx-auto flex items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Image src="/footer-logo.svg" alt="Spirit Network Logo" width={60} height={60} className="object-contain" />
+            <Image
+              src="/footer-logo.svg"
+              alt="Spirit Network Logo"
+              width={90}
+              height={90}
+              className="object-contain"
+            />
           </div>
 
           {/* Center Text */}
-          <div className="flex-1 px-8 text-center text-sm text-gray-300">
+          <div className="flex-1 px-8 text-left text-sm text-gray-300">
             <p className="mb-2">
-              All products are sold by PlayNetwork, our authorized reseller and official Merchant of Record. They handle
-              all sales, payments, and order fulfillment.
+              All products are sold by PlayNetwork, our authorized reseller and
+              official Merchant of Record. They handle all sales, payments, and
+              order fulfillment.
             </p>
             <p>© Spirit Network 2025. Todos os Direitos Reservados.</p>
           </div>
@@ -306,8 +346,12 @@ export default function ProductsPage() {
             <div className="text-right text-sm">
               <p className="font-semibold mb-2">Sobre Nós</p>
               <div className="space-y-1 text-blue-400">
-                <p className="hover:text-blue-300 cursor-pointer">Política de Privacidade</p>
-                <p className="hover:text-blue-300 cursor-pointer">Termos de Serviço</p>
+                <p className="hover:text-blue-300 cursor-pointer">
+                  Política de Privacidade
+                </p>
+                <p className="hover:text-blue-300 cursor-pointer">
+                  Termos de Serviço
+                </p>
                 <p className="hover:text-blue-300 cursor-pointer">Ajuda</p>
               </div>
             </div>
@@ -315,5 +359,5 @@ export default function ProductsPage() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
