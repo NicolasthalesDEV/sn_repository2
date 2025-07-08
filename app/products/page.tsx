@@ -87,7 +87,7 @@ export default function ProductsPage() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Image
-              src="/sn-logo.png"
+              src="/sn-logo-new.png"
               alt="Spirit Network Logo"
               width={40}
               height={50}
@@ -133,9 +133,9 @@ export default function ProductsPage() {
                 <LogOut size={16} />
                 <span>Sair</span>
               </button>
-              <button className="flex items-center gap-1 text-[#A1A1AA] hover:text-white transition-colors text-sm">
+              <Link href="/cart" className="flex items-center gap-1 text-[#A1A1AA] hover:text-white transition-colors text-sm">
                 <ShoppingCart size={16} />
-              </button>
+              </Link>
             </div>
           </div>
         </div>
